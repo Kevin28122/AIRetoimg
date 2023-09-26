@@ -11,12 +11,11 @@
 
 }
 
-.language-container {
-    display: flex;
-    align-items: center;
+.img{
+    font-size: 14px;
 }
-.language-label {
-    margin-right: 100px;
+.h1{
+    font-size: 35px;
 }
 
 
