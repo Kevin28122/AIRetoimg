@@ -1,0 +1,11 @@
+Si tienes una URL de imagen:
+https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/02ed81c5-1dee-473b-9c76-06f95a854d45/classify/iterations/senasoft/url
+Establezca el encabezado en: Prediction-Key2b1eca95adfe4958b18ba195099f7ab7
+Establezca el encabezado en: Content-Typeapplication/json
+Establezca Body en : {"Url": "https://example.com/image.png"}
+
+Si tiene un archivo de imagen:
+https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/02ed81c5-1dee-473b-9c76-06f95a854d45/classify/iterations/senasoft/image
+Establezca el encabezado en: Prediction-Key2b1eca95adfe4958b18ba195099f7ab7
+Establezca el encabezado en: Content-Typeapplication/octet-stream
+Establezca Body en: <archivo de imagen>
