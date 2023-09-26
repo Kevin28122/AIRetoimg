@@ -7,11 +7,14 @@
     <title>¿Que imagen es?</title>
 </head>
 <body>
-    <h1 align="center">RETO AI-900 SENASOFT</h1>
-    <h2>Seleccion Imagen</h2>
-    <input type="file" id="imagein" accept="image/*">
+    <h1 class="h1" align="center">RETO AI-900 SENASOFT</h1>
+    <h1 class="h1">Deteccion de objetos</h1>
+    <input class="img" type="file" id="imagein" accept="image/*">
     <div class="imageContainer" id="imgcont"></div>
-    <div id="deteccion"><label for="detect">lo detectado en la imagen fue:</label></div>
+    <div id="deteccion" class="resultado">
+        <h1>Resultado</h1>
+        <label for="detect">lo detectado en la imagen fue:</label>
+    </div>
     <br>
     <br>
     <br>
@@ -21,8 +24,9 @@
             <option value="Fr">Frances</option>
             <option value="Port">Portugues</option>
         </select>
+    <div  id="traduccioncont">
 
-    <div  id="traduccioncont"></div>
+    </div>
     
 <script>   
 const imagein = document.getElementById('imagein');
