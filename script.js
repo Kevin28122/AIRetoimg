@@ -1,17 +1,17 @@
 const urlPrediccion = "introduccir la url del servivicio";
-const keyPrediccion = "introducir la llave del servicio";
+const llavePrediccion = "introducir la llave del servicio";
 
 let numImg = 1;
 
-let imagen = document.getElementById("lol");
+let imagen = document.getElementById("imagein");
 
 const headers = new Headers();
-headers.append("Prediction-Key", predictionKey);
-headers.append("Content-Type", "application/json");
+headers.append("llave-prediccion", llavePrediccion);
+headers.append("tipo-contenido", "application/json");
 
-const body = JSON.stringify({ url: imgUrl });
+const body = JSON.stringify({ url: imagen });
 
-fetch(predictionUrl, {
+fetch(urlPrediccion, {
     method: "POST",
     headers,
     body
@@ -22,3 +22,44 @@ fetch(predictionUrl, {
       console.log("La imagen es de:", firstPrediction.tagName);
     })
     .catch(error => console.error("Error:", error));
+
+const key = "YOUR_KEY";
+const locacion = "YOUR_LOCATION";
+const puntoConexion = "https://api.cognitive.microsofttranslator.com/";
+
+let text = firstPrediction;
+
+headers = {
+  "Ocp-Apim-Subscription-Key": key,
+  "Ocp-Apim-Subscription-Region": location,
+  "Content-Type": "application/json",
+};
+
+body = JSON.stringify([{ text }]);
+
+console.log("Translating text...");
+
+fetch(`${puntoConexion}/translate?api-version=3.0&from=es&to=en&to=fr&to=pt-Hans`, {
+  method: "POST",
+  headers,
+  body,
+})
+
+  .then(response => response.json())
+  .then(analysis => {
+    const ingles = analysis[0].translations[0].text;
+    const franses = analysis[0].translations[1].text;
+    const portugues = analysis[0].translations[2].text;
+
+    eleccion = document.getElementById("SelectLang").value;
+
+    if (eleccion = "En") {
+        console.log (`texto original: ${text}\nTexto en ingles: ${ingles}`);
+    } else if (eleccion = "Fr") {
+        console.log (`texto original: ${text}\nTexto en ingles: ${franses}`);
+    } else if (eleccion = "Port") {
+        console.log (`texto original: ${text}\nTexto en ingles: ${portugues}`);
+    }
+  })
+
+  .catch(error => console.error("Error:", error));
