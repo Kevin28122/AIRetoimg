@@ -10,14 +10,20 @@
     <h1 align="center">RETO AI-900 SENASOFT</h1>
     <h2>Seleccion Imagen</h2>
     <input type="file" id="imagein" accept="image/*">
-    <label for="seleccionarleng">seleccionar un idioma</label>
-    <select id="SelectLang">
-        <option value="En">Ingles</option>
-        <option value="Fr">Frances</option>
-        <option value="Port">Portugal</option>
-    </select>
     <div class="imageContainer" id="imgcont"></div>
+    <div id="deteccion"><label for="detect">lo detectado en la imagen fue:</label></div>
+    <br>
+    <br>
+    <br>
+    <label class="lanlabel" for="seleccionarleng">seleccionar un idioma</label>
+        <select id="SelectLang">
+            <option value="En">Ingles</option>
+            <option value="Fr">Frances</option>
+            <option value="Port">Portugues</option>
+        </select>
+
     <div  id="traduccioncont"></div>
+    
 <script>   
 const imagein = document.getElementById('imagein');
 const seleccionarleng = document.getElementById('seleccionarleng');
