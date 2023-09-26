@@ -1,5 +1,5 @@
-const urlPrediccion = "introduccir la url del servivicio";
-const llavePrediccion = "introducir la llave del servicio";
+const urlPrediccion = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/02ed81c5-1dee-473b-9c76-06f95a854d45/classify/iterations/senasoft/image";
+const llavePrediccion = "2b1eca95adfe4958b18ba195099f7ab7";
 
 let numImg = 1;
 
@@ -23,8 +23,8 @@ fetch(urlPrediccion, {
     })
     .catch(error => console.error("Error:", error));
 
-const llave = "YOUR_KEY";
-const locacion = "YOUR_LOCATION";
+const llave = "5cf133982c9640a5b9701f86cfe7e612";
+const locacion = "eastus";
 const puntoConexion = "https://api.cognitive.microsofttranslator.com/";
 
 let text = firstPrediction;
