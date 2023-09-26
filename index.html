@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>¿Que imagen es?</title>
 </head>
 <body>
     <h1 align="center">RETO AI-900 SENASOFT</h1>
-    <div>
-        <h1 class="header-title">Insertar Imagen</h1>
-        <input type="file">
-    </div>
-    <div align="center">
-        <nav>
-            <h1 class="header-title">Traducir resutado</h1>
-            <ol>
-                <ul>Ingles</a></ul>
-                <ul>Frances</a></ul>
-                <ul>Portuges</a></ul>
-              </ol>
-        </nav>
-    </div>
+    <h2>Seleccion Imagen</h2>
+    <input type="file" id="imagein" accept="image/*">
+    <label for="seleccionarleng">seleccionar un idioma</label>
+    <select id="SelectLang">
+        <option value="En">Ingles</option>
+        <option value="Fr">Frances</option>
+        <option value="Port">Portugal</option>
+    </select>
+    <div class="imageContainer" id="imgcont"></div>
+    <div  id="traduccioncont"></div>
+<script>   
+const imagein = document.getElementById('imagein');
+const seleccionarleng = document.getElementById('seleccionarleng');
+const imgcont =document.getElementById('imgcont');
+const traduccioncont = document.getElementById('traduccioncont');
 
+imagein.addEventListener('change',()=>{
+    const file = imagein.files[0];
+    if(file){
+        const reader = new FileReader();
+        reader.onload = (e) =>{
+            const image = document.createElement('img');
+            image.src = e.target.result;
+            imgcont.innerHTML='';
+            imgcont.appendChild(image);
+        };
+        reader.readAsDataURL(file);
+    } 
+});
+
+</script>
 </body>
 </html>
