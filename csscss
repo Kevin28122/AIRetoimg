@@ -1,0 +1,20 @@
+
+const imagein = document.getElementById('imagein');
+const seleccionarleng = document.getElementById('seleccionarleng');
+const imgcont =document.getElementById('imgcont');
+const traduccioncont = document.getElementById('traduccioncont');
+
+imagein.addEventListener('change',()=>{
+    const file = imagein.files[0];
+    if(file){
+        const reader = new FileReader();
+        reader.onload = (e) =>{
+            const image = document.createElement('img');
+            image.src = e.target.result;
+            imgcont.innerHTML='';
+            imgcont.appendChild(image);
+        };
+        reader.readAsDataURL(file);
+    } 
+});
+
