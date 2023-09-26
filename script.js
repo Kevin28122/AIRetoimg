@@ -23,15 +23,15 @@ fetch(urlPrediccion, {
     })
     .catch(error => console.error("Error:", error));
 
-const key = "YOUR_KEY";
+const llave = "YOUR_KEY";
 const locacion = "YOUR_LOCATION";
 const puntoConexion = "https://api.cognitive.microsofttranslator.com/";
 
 let text = firstPrediction;
 
 headers = {
-  "Ocp-Apim-Subscription-Key": key,
-  "Ocp-Apim-Subscription-Region": location,
+  "Ocp-Apim-Subscription-Key": llave,
+  "Ocp-Apim-Subscription-Region": locacion,
   "Content-Type": "application/json",
 };
 
