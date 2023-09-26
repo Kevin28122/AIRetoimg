@@ -1,33 +1,39 @@
-const urlPrediccion = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/02ed81c5-1dee-473b-9c76-06f95a854d45/classify/iterations/senasoft/image";
-const llavePrediccion = "2b1eca95adfe4958b18ba195099f7ab7";
+  document.addEventListener("DOMContentLoaded", function() {
+    const urlPrediccion = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/02ed81c5-1dee-473b-9c76-06f95a854d45/classify/iterations/senasoft/image";
+    const llavePrediccion = "2b1eca95adfe4958b18ba195099f7ab7";
 
-let numImg = 1;
+    function cargarImagen() {
+      var inputImagen = document.getElementById("imagein");
+      var imagen = inputImagen.files[0];
+      return imagen;
+    }
 
-let imagen = document.getElementById("imagein");
+    const headers = new Headers();
+    headers.append("Prediction-key", llavePrediccion);
+    headers.append("Content-Type", "multipart/form-data");
 
-const headers = new Headers();
-headers.append("llave-prediccion", llavePrediccion);
-headers.append("tipo-contenido", "application/json");
+    const formData = new FormData();
+    formData.append("image", cargarImagen());
 
-const body = JSON.stringify({ url: imagen });
-
-fetch(urlPrediccion, {
-    method: "POST",
-    headers,
-    body
-  })
-    .then(response => response.json())
-    .then(prediction => {
-      const firstPrediction = prediction.predictions[0];
-      console.log("La imagen es de:", firstPrediction.tagName);
+    fetch(urlPrediccion, {
+      method: "POST",
+      headers,
+      body: formData
     })
-    .catch(error => console.error("Error:", error));
+      .then(response => response.json())
+      .then(prediction => {
+        const firstPrediction = prediction.predictions[0];
+        console.log("La imagen es de:", firstPrediction.tagName);
+      })
+      .catch(error => console.error("Error:", error));
+  });
+
 
 const llave = "5cf133982c9640a5b9701f86cfe7e612";
 const locacion = "eastus";
 const puntoConexion = "https://api.cognitive.microsofttranslator.com/";
 
-let text = firstPrediction;
+var text = firstPrediction;
 
 headers = {
   "Ocp-Apim-Subscription-Key": llave,
