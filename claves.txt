@@ -9,3 +9,10 @@ https://aivision12.cognitiveservices.azure.com/customvision/v3.0/Prediction/6ccc
 Set Prediction-Key Header to : a70a0724e695415eb19dfa11dcb6ffc3
 Set Content-Type Header to : application/octet-stream
 Set Body to : <image file>
+
+
+Face
+Key1: a15f00d4226e4641a788043d77b73440
+Key2: 3a0a26d7bb7f4de3a087c9df92551e34
+Region: eastus
+EndPoint: https://faceq.cognitiveservices.azure.com/
