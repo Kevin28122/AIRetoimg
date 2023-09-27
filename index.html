@@ -11,10 +11,49 @@
     <h1 class="h1" align="center">RETO AI-900 SENASOFT</h1>
     <div class="Container">
         <h1 class="tit" >Deteccion de objetos</h1>
-        <input class="img" type="file" id="imagein" accept="image/*">
-        <button onclick="cargarImagen()" class="button">enviar</button>
-        <div class="imageContainer" id="imgcont"></div>
+        <div class="image-upload-container">
+            <!-- Primer campo de entrada de archivo y contenedor -->
+            <div class="file-input-container">
+                <input type="file" class="image-input" accept="image/*">
+                <input type="url" class="image-url" placeholder="URL de la imagen">
+                <button class="load-image-btn">Cargar desde URL</button>
+                <div class="image-preview"></div>
+                <h2 class="tit">Resultado</h2>
+                <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
+            </div>
+    
+            <!-- Segundo campo de entrada de archivo y contenedor -->
+            <div class="file-input-container">
+                <input type="file" class="image-input" accept="image/*">
+                <input type="url" class="image-url" placeholder="URL de la imagen">
+                <button class="load-image-btn">Cargar desde URL</button>
+                <div class="image-preview"></div>
+                <h2 class="tit">Resultado</h2>
+                <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
+            </div>
+    
+            <!-- Tercer campo de entrada de archivo y contenedor -->
+            <div class="file-input-container">
+                <input type="file" class="image-input" accept="image/*">
+                <input type="url" class="image-url" placeholder="URL de la imagen">
+                <button class="load-image-btn">Cargar desde URL</button>
+                <div class="image-preview"></div>
+                <h2 class="tit">Resultado</h2>
+                <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
+            </div>
+    
+            <!-- Cuarto campo de entrada de archivo y contenedor -->
+            <div class="file-input-container">
+                <input type="file" class="image-input" accept="image/*">
+                <input type="url" class="image-url" placeholder="URL de la imagen">
+                <button class="load-image-btn">Cargar desde URL</button>
+                <div class="image-preview"></div>
+                <h2 class="tit">Resultado</h2>
+                <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
+            </div>
+        </div>
         <div id="deteccion" class="resultado">
+        <button onclick="cargarImagen()" class="button">enviar</button>
             <h1 class="tit">Resultado</h1>
             <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
         </div>
@@ -28,29 +67,116 @@
                 <option value="Fr">Frances</option>
                 <option value="Port">Portugues</option>
             </select>
+            <button onclick="" class="button">Tradicir</button>
         </div>
         <div  id="traduccioncont"></div>
     </div>
 <script>   
-const imagein = document.getElementById('imagein');
-const seleccionarleng = document.getElementById('seleccionarleng');
-const imgcont =document.getElementById('imgcont');
-const traduccioncont = document.getElementById('traduccioncont');
+// Obtén una lista de todos los campos de entrada de archivo, URL, botones y contenedores de vista previa
+const imageInputs = document.querySelectorAll('.image-input');
+const imageURLs = document.querySelectorAll('.image-url');
+const loadImageBtns = document.querySelectorAll('.load-image-btn');
+const imagePreviews = document.querySelectorAll('.image-preview');
 
-imagein.addEventListener('change',()=>{
-    const file = imagein.files[0];
-    if(file){
-        const reader = new FileReader();
-        reader.onload = (e) =>{
-            const image = document.createElement('img');
-            image.src = e.target.result;
-            imgcont.innerHTML='';
-            imgcont.appendChild(image);
+const maxImageWidth = 300; // Ancho máximo en píxeles
+const maxImageHeight = 180; // Alto máximo en píxeles
+const maxImageSizeInBytes = 1024 * 1024; // Tamaño máximo de imagen en bytes (1 MB en este ejemplo)
+
+// Función para mostrar una imagen redimensionada en la vista previa
+function mostrarImagenRedimensionada(index, imgSrc) {
+    // Reinicia el contenido del contenedor de vista previa correspondiente
+    imagePreviews[index].innerHTML = '';
+
+    // Crea un elemento de imagen
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    img.alt = 'Imagen';
+    img.style.maxWidth = maxImageWidth + 'px'; // Limita el ancho máximo
+    img.style.maxHeight = maxImageHeight + 'px'; // Limita el alto máximo
+
+    // Agrega la imagen redimensionada al contenedor de vista previa correspondiente
+    imagePreviews[index].appendChild(img);
+}
+
+// Función para redimensionar una imagen
+function redimensionarImagen(file) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.src = URL.createObjectURL(file);
+        img.onload = () => {
+            const width = img.width;
+            const height = img.height;
+
+            // Redimensiona la imagen si supera las dimensiones máximas
+            if (width > maxImageWidth || height > maxImageHeight) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = maxImageWidth;
+                canvas.height = maxImageHeight;
+                ctx.drawImage(img, 0, 0, maxImageWidth, maxImageHeight);
+                canvas.toBlob((blob) => {
+                    resolve(blob);
+                }, file.type);
+            } else {
+                resolve(file);
+            }
         };
-        reader.readAsDataURL(file);
-    } 
+    });
+}
+
+// Escucha el evento de cambio en cada campo de entrada de archivo
+imageInputs.forEach((input, index) => {
+    input.addEventListener('change', async (event) => {
+        // Si se selecciona un archivo desde el campo de entrada de archivo
+        if (input.files && input.files[0]) {
+            const file = input.files[0];
+
+            // Verifica el tamaño de la imagen y redimensiona si es necesario
+            if (file.size <= maxImageSizeInBytes) {
+                const resizedImage = await redimensionarImagen(file);
+                const imgSrc = URL.createObjectURL(resizedImage); // Crea una URL para la imagen redimensionada
+                mostrarImagenRedimensionada(index, imgSrc);
+            } else {
+                alert('La imagen es demasiado grande. El tamaño máximo permitido es de 1 MB.');
+                input.value = ''; // Borra el valor del campo de entrada para permitir la corrección
+            }
+        }
+    });
 });
+
+// Escucha el evento de clic en los botones "Cargar desde URL"
+loadImageBtns.forEach((loadBtn, index) => {
+    loadBtn.addEventListener('click', async () => {
+        const urlInput = imageURLs[index];
+        const url = urlInput.value;
+
+        // Verifica que la URL sea válida y que termine en una extensión de imagen
+        if (url.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
+            // Descargar la imagen y redimensionar si es necesario
+            fetch(url)
+                .then((response) => response.blob())
+                .then(async (blob) => {
+                    if (blob.size <= maxImageSizeInBytes) {
+                        const resizedImage = await redimensionarImagen(blob);
+                        const imgSrc = URL.createObjectURL(resizedImage); // Crea una URL para la imagen redimensionada
+                        mostrarImagenRedimensionada(index, imgSrc);
+                    } else {
+                        alert('La imagen es demasiado grande. El tamaño máximo permitido es de 1 MB.');
+                    }
+                })
+                .catch((error) => {
+                    alert('No se pudo cargar la imagen desde la URL. Asegúrate de que la URL sea válida.');
+                });
+        } else {
+            alert('URL de imagen no válida');
+        }
+    });
+});
+
+
+
 
 </script>
 </body>
 </html>
+
