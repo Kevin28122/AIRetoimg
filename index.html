@@ -10,7 +10,7 @@
 <body>
     <h1 class="h1" align="center">RETO AI-900 SENASOFT</h1>
     <div class="Container">
-        <h1 class="tit" >Deteccion de objetos</h1>
+        <h1 class="tit" >Deteccion de Imagenes</h1>
         <div class="image-upload-container">
             <!-- Primer campo de entrada de archivo y contenedor -->
             <div class="file-input-container">
@@ -54,8 +54,6 @@
         </div>
         <div id="deteccion" class="resultado">
         <button onclick="cargarImagen()" class="button">enviar</button>
-            <h1 class="tit">Resultado</h1>
-            <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
         </div>
         <br>
         <br>
@@ -67,9 +65,22 @@
                 <option value="Fr">Frances</option>
                 <option value="Port">Portugues</option>
             </select>
-            <button onclick="" class="button">Tradicir</button>
         </div>
-        <div  id="traduccioncont"></div>
+        <div>
+              <!-- Botón para traducir -->
+            <button id="traducir" class="button1">Traducir</button>
+        </div>
+        <br>
+        <div>
+            <!-- Botón para escuchar la traducción con un logo  -->
+            <button id="escuchar">
+                <img src="icono-escuchar.png" alt="Escuchar">
+            </button>
+        </div>
+            <!-- Resultado de la traducción -->
+            <div id="resultado"></div>
+        
+        
     </div>
 <script>   
 // Obtén una lista de todos los campos de entrada de archivo, URL, botones y contenedores de vista previa
