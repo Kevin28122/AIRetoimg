@@ -16,7 +16,9 @@
             <div class="file-input-container">
                 <input type="file" class="image-input" accept="image/*">
                 <input type="url" class="image-url" placeholder="URL de la imagen">
+                <br>
                 <button class="load-image-btn">Cargar desde URL</button>
+                <br>
                 <div class="image-preview"></div>
                 <h2 class="tit">Resultado</h2>
                 <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
@@ -26,7 +28,9 @@
             <div class="file-input-container">
                 <input type="file" class="image-input" accept="image/*">
                 <input type="url" class="image-url" placeholder="URL de la imagen">
+                <br>
                 <button class="load-image-btn">Cargar desde URL</button>
+                <br>
                 <div class="image-preview"></div>
                 <h2 class="tit">Resultado</h2>
                 <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
@@ -36,7 +40,9 @@
             <div class="file-input-container">
                 <input type="file" class="image-input" accept="image/*">
                 <input type="url" class="image-url" placeholder="URL de la imagen">
+                <br>
                 <button class="load-image-btn">Cargar desde URL</button>
+                <br>
                 <div class="image-preview"></div>
                 <h2 class="tit">Resultado</h2>
                 <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
@@ -46,21 +52,25 @@
             <div class="file-input-container">
                 <input type="file" class="image-input" accept="image/*">
                 <input type="url" class="image-url" placeholder="URL de la imagen">
+                <br>
                 <button class="load-image-btn">Cargar desde URL</button>
+                <br>
                 <div class="image-preview"></div>
                 <h2 class="tit">Resultado</h2>
                 <label class="label1" for="detect">Lo detectado en la imagen fue:</label>
             </div>
+            <br>
         </div>
+        <br>
         <div id="deteccion" class="resultado">
+            <br>
         <button onclick="cargarImagen()" class="button">enviar</button>
         </div>
         <br>
         <br>
-        <br>
         <div class="lista">
             <label class="label" for="seleccionarleng">Seleccionar un idioma</label>
-            <select id="SelectLang">
+            <select id="SelectLang" class="selectidio">
                 <option value="En">Ingles</option>
                 <option value="Fr">Frances</option>
                 <option value="Port">Portugues</option>
@@ -68,18 +78,22 @@
         </div>
         <div>
               <!-- Botón para traducir -->
-            <button id="traducir" class="button1">Traducir</button>
+            <button id="traducir" class="trad">Traducir</button>
+            <br>
+            <br>
+            <!-- Resultado de la traducción -->
+            <div id="resultado">
+                <label class="label" for="traduccion">la traduccion es:</label>
+            </div>
         </div>
         <br>
         <div>
             <!-- Botón para escuchar la traducción con un logo  -->
-            <button id="escuchar">
-                <img src="icono-escuchar.png" alt="Escuchar">
+            <button id="escuchar" class="escu">
+                <img src="boton-de-reproduccion.png" alt="Escuchar">
             </button>
         </div>
-            <!-- Resultado de la traducción -->
-            <div id="resultado"></div>
-        
+
         
     </div>
 <script>   
