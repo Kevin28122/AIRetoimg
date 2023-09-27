@@ -17,7 +17,7 @@
     padding: 10px;
     border: 1px olid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 46px;
 }
 
 .button{
@@ -28,6 +28,7 @@
     padding: 10px 12px;
     font-size: 14px;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 .button:hover{
@@ -47,8 +48,9 @@
     margin: 0 auto;
     padding: 20px;
     background-color: white;
-    box-shadow: 0 0 20px rgba(151, 102, 102, 0.1);
+    box-shadow: 0 0 20px rgba(209, 35, 35, 0.1);
     border-radius: 5px;
+
 }
 
 .lista{
@@ -59,7 +61,8 @@
 
 .label{
     font-weight: bold;
-    margin: 10px;
+    margin: 5px;
+    text-align: left;
 }
 
 .label1{
@@ -78,6 +81,34 @@ body {
     height: 100vh;
     background: linear-gradient(45deg, #2f2d2d 0%, #181616 50%, #3e413e 50%, #3d413d 100%);
   }
+  
+  /* Estilo para el contenedor principal de carga de imágenes */
+.image-upload-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Estilo para los contenedores de entrada de archivo */
+.file-input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilo para los campos de entrada de archivo */
+.image-input {
+    margin-bottom: 10px;
+}
+
+/* Estilo para los contenedores de vista previa de imágenes */
+.image-preview {
+    max-width: 100%;
+    max-height: 300px;
+}
+
   
   
 
