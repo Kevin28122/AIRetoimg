@@ -10,6 +10,7 @@ Set Prediction-Key Header to : a70a0724e695415eb19dfa11dcb6ffc3
 Set Content-Type Header to : application/octet-stream
 Set Body to : <image file>
 
+<<<<<<< Updated upstream
 
 Face
 Key1: a15f00d4226e4641a788043d77b73440
@@ -28,3 +29,6 @@ Key1:    8f8d00707216474881e8f9346f5d2ddb
 Key2:    2f0cf9a2d7a245faa49d44c1c4947595
 Region:  eastus
 EndPoint:
+=======
+end point: https://aivision12.cognitiveservices.azure.com/
+>>>>>>> Stashed changes
