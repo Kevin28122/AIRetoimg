@@ -1,11 +1,34 @@
 Si tienes una URL de imagen:
-https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/02ed81c5-1dee-473b-9c76-06f95a854d45/classify/iterations/senasoft/url
-Establezca el encabezado en: Prediction-Key2b1eca95adfe4958b18ba195099f7ab7
-Establezca el encabezado en: Content-Typeapplication/json
-Establezca Body en : {"Url": "https://example.com/image.png"}
+https://aivision12.cognitiveservices.azure.com/customvision/v3.0/Prediction/6ccc0d04-9cbe-48cc-b6d7-a2cfec737b8e/classify/iterations/IAvision/url
+Set Prediction-Key Header to : a70a0724e695415eb19dfa11dcb6ffc3
+Set Content-Type Header to : application/json
+Set Body to : {"Url": "https://example.com/image.png"}
 
 Si tiene un archivo de imagen:
-https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/02ed81c5-1dee-473b-9c76-06f95a854d45/classify/iterations/senasoft/image
-Establezca el encabezado en: Prediction-Key2b1eca95adfe4958b18ba195099f7ab7
-Establezca el encabezado en: Content-Typeapplication/octet-stream
-Establezca Body en: <archivo de imagen>
+https://aivision12.cognitiveservices.azure.com/customvision/v3.0/Prediction/6ccc0d04-9cbe-48cc-b6d7-a2cfec737b8e/classify/iterations/IAvision/image
+Set Prediction-Key Header to : a70a0724e695415eb19dfa11dcb6ffc3
+Set Content-Type Header to : application/octet-stream
+Set Body to : <image file>
+
+<<<<<<< Updated upstream
+
+Face
+Key1: a15f00d4226e4641a788043d77b73440
+Key2: 3a0a26d7bb7f4de3a087c9df92551e34
+Region: eastus
+EndPoint: https://faceq.cognitiveservices.azure.com/
+
+Deteccion
+Key1:     20f1d8bcca9e4749b258b6e2dc4252d9
+Key2:     8e275f52da054250bc9146107acc7da6
+Region:   eastus
+EndPoint: https://detecccion1.cognitiveservices.azure.com/
+
+traslate
+Key1:    8f8d00707216474881e8f9346f5d2ddb
+Key2:    2f0cf9a2d7a245faa49d44c1c4947595
+Region:  eastus
+EndPoint:
+=======
+end point: https://aivision12.cognitiveservices.azure.com/
+>>>>>>> Stashed changes
