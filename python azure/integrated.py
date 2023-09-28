@@ -51,7 +51,7 @@ headers = {
 
 body = [{"text": text}] 
 
-print("Translating image selected...")
+print("Traduciendo imagen seleccionada...")
 response = requests.post(
     f"{endpoint}/translate?api-version=3.0&from=es&to=fr&to=it&to=zh-Hans",
     headers=headers,
