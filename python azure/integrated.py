@@ -2,8 +2,8 @@ import requests
 import sys
 
 # Declaración de variables
-prediction_url = "https://aivision12.cognitiveservices.azure.com/customvision/v3.0/Prediction/6ccc0d04-9cbe-48cc-b6d7-a2cfec737b8e/classify/iterations/IAvision/url"
-prediction_key = "a70a0724e695415eb19dfa11dcb6ffc3"
+prediction_url = "https://detecccion1.cognitiveservices.azure.com/customvision/v3.0/Prediction/6ccc0d04-9cbe-48cc-b6d7-a2cfec737b8e/classify/iterations/Iteration2/url"
+prediction_key = "20f1d8bcca9e4749b258b6e2dc4252d9"
 
 # Código para llamar al servicio Custom Vision para la clasificación de imágenes
 img_num = 1
